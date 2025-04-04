@@ -1,0 +1,263 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: #555;
+        }
+        
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #222;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 30px 0 20px;
+            color: #333;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        strong {
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin-top: 50px;
+            
+        }
+
+        .nav-li {
+            background-color: aqua;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-li2 {
+            background-color: rgb(118, 204, 97);
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-li3 {
+            background-color: rgb(255, 136, 0);
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #565151;
+            font-weight: 500;
+            transition: color 0.3s;
+            
+        }
+        
+        .nav-links a:hover {
+            color: #000;
+        }
+
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+         .left {
+            padding-left: 200px;
+
+         }
+
+        
+        .divider {
+            border-top: 1px solid #ccc;
+            margin: 30px auto;
+            width: 80%;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+        }
+        
+        .contact-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #666;
+        }
+        
+        .contact-value {
+            font-size: 1.1rem;
+        }
+        
+        .social {
+            margin: 30px 0;
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+
+
+          /* Menu Burger Actif */
+        .nav-active {
+            transform: translateX(0%) !important;
+        }
+
+        .toggle .bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .toggle .bar2 {
+            opacity: 0;
+        }
+
+        .toggle .bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Media Queries pour mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .name {
+                margin-top: 60px;
+            }
+        }
+
+        /* Media Queries pour tablette */
+        @media  (min-width: 768px) {
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+
+            .name {
+                margin-bottom: 0;
+                text-align: left;
+            }
+
+            main {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 50px;
+            }
+
+            .left {
+                text-align: left;
+            }
+        }
+
+        /* Media Queries pour desktop */
+        @media (min-width: 1024px) {
+            body {
+                padding: 40px;
+            }
+
+            .image img {
+                max-width: 350px;
+            }
+        }
+        /* Media Queries pour desktop */
+        @media (min-width: 1024px) {
+            body {
+                padding: 40px;
+            }
+
+            .image img {
+                max-width: 350px;
+            }
+        }
