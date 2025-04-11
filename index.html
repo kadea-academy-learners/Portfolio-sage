@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sage Dimumbe ilunga - Développeuse Web</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="header-container">
         <div class="name">Sage Dimumbe</div>
-        <nav>
+        
+        <!-- Menu Burger -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-links" id="navLinks">
             <a href="cv.html">CV</a>
             <a href="projet.html">Projets</a>
             <a href="contact.html">Contact</a>
@@ -19,25 +28,23 @@
     </div>
 
     <main>
-        
-            <div class="image">
-                <img src="image/Photo sage 1 1.png" alt="">
-            </div>
-            <div class="left">
-                <h1>Hello</h1>
+        <div class="image">
+            <img src="image/Photo sage 1 1.png" alt="Photo de Sage Dimumbe">
+        </div>
+        <div class="left">
+            <h1>Hello</h1>
 
-                <h2>A propos de moi</h2>
-                <p>Je suis <strong>Sage Dimumbe ilunga</strong>, une développeuse web passionnée dotée d'une créativité
-                    débordante
-                    et d'un talent pour concrétiser des idées en expériences numériques interactives.</p>
+            <h2>A propos de moi</h2>
+            <p>Je suis <strong>Sage Dimumbe ilunga</strong>, une développeuse web passionnée dotée d'une créativité
+                débordante
+                et d'un talent pour concrétiser des idées en expériences numériques interactives.</p>
 
-                <ul class="nav-links">
-                    <li class="nav-li"><a href="cv.html">CV</a></li>
-                    <li class="nav-li2"><a href="projet.html">Projets</a></li>
-                    <li class="nav-li3"><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-    
+            <ul class="nav-buttons">
+                <li class="nav-li"><a href="cv.html">CV</a></li>
+                <li class="nav-li2"><a href="projet.html">Projets</a></li>
+                <li class="nav-li3"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </main>
 
     <div class="divider"></div>
@@ -55,13 +62,19 @@
         
         <div class="contact-item social">
             <span class="contact-label">Suivez-moi</span>
-            <!-- Ici vous pourriez ajouter des icônes de réseaux sociaux -->
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
         
         <div class="copyright">
             © 2025 By Sage Dimumbe
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
