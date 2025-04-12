@@ -79,12 +79,14 @@ hr {
 
 .form-group {
     margin-bottom: 20px;
+    
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+   
 }
 
 input, textarea {
@@ -106,6 +108,9 @@ input, textarea {
     width: 100%;
     height: auto;
     font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .contact-container {
@@ -114,6 +119,13 @@ input, textarea {
     padding: 0;
     display: flex;
     flex-direction: column;
+}
+
+.contact-item-social{
+    display: flex;
+    flex-direction: column;
+
+    
 }
 
 .contact-item {
@@ -151,6 +163,10 @@ input, textarea {
     color: #888;
 }
 
+.full-width {
+    width: 100%;
+}
+
 /* Media Queries pour la responsivité */
 @media (min-width: 600px) {
     .header-container {
@@ -167,10 +183,15 @@ input, textarea {
         margin: 0 15px;
     }
     
-    .form-section {
-        flex-direction: row;
-        gap: 40px;
-    }
+        .form-section {
+            flex-direction: row;
+            gap: 40px;
+        }
+        
+        .form-column {
+            flex: 1;
+        }
+
     
     .submit-btn {
         width: auto;
@@ -195,6 +216,11 @@ input, textarea {
     body {
         padding: 40px 20px;
     }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
     
     .submit-btn {
         border-radius: 100%;
