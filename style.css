@@ -246,7 +246,7 @@ p {
         margin: 10px;
     }
     
-    .contact-item {
+   contact-item {
        display: table-column
     }
 }
