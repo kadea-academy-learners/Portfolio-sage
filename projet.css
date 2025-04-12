@@ -79,6 +79,17 @@ nav a {
     margin-bottom: 20px;
 }
 
+.contact-item-social {
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .contact-label {
     font-weight: bold;
     display: block;
