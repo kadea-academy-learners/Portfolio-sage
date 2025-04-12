@@ -147,7 +147,7 @@ p {
 
 .contact-item {
     margin-bottom: 20px;
-    flex: 1 1 200px;
+    
 }
 
 .contact-label {
@@ -235,7 +235,7 @@ p {
     }
     
     .nav-buttons {
-       git 
+
         align-items: center;
     }
     
@@ -243,10 +243,11 @@ p {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        margin: 10px;
     }
     
     .contact-item {
-        margin-bottom: 30px;
+       display: table-column
     }
 }
 
