@@ -89,9 +89,10 @@ Le portfolio est entièrement responsive et optimisé pour :
 
 ## 🔗 Liens
 
-- **Portfolio en ligne :** [À définir]
-- **LinkedIn :** [https://www.linkedin.com/in/sage-dimumbe](https://www.linkedin.com/in/sage-dimumbe)
-- **GitHub :** [https://github.com/sagedimumbe](https://github.com/sagedimumbe)
+- **🌐 Portfolio en ligne :** [https://kadea-academy-learners.github.io/Portfolio-sage/](https://kadea-academy-learners.github.io/Portfolio-sage/)
+- **💼 LinkedIn :** [https://www.linkedin.com/in/sage-dimumbe](https://www.linkedin.com/in/sage-dimumbe)
+- **👨‍💻 GitHub :** [https://github.com/sagedimumbe](https://github.com/sagedimumbe)
+- **📂 Repository :** [https://github.com/kadea-academy-learners/Portfolio-sage](https://github.com/kadea-academy-learners/Portfolio-sage)
 
 ## 📧 Contact
 

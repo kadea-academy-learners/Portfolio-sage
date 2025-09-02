@@ -1,0 +1,19 @@
+# Dossiers temporaires
+.DS_Store
+Thumbs.db
+
+# Fichiers de cache
+.vscode/
+*.log
+.cache/
+
+# Dossiers de node_modules (si vous utilisez Node.js plus tard)
+node_modules/
+
+# Fichiers de sauvegarde
+*.tmp
+*.bak
+*~
+
+# Fichiers système Windows
+desktop.ini

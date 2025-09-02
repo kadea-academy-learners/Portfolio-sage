@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page non trouvée | Sage Dimumbe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .error-number {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #ff8800;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #666;
+            max-width: 600px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff8800;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #e67300;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="name">Sage Dimumbe</div>
+        <nav class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="cv.html">CV</a>
+            <a href="projet.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <div class="error-container">
+        <div class="error-number">404</div>
+        <div class="error-message">Oups ! Page non trouvée</div>
+        <div class="error-description">
+            La page que vous recherchez n'existe pas ou a été déplacée. 
+            Retournez à l'accueil pour explorer mon portfolio !
+        </div>
+        <a href="index.html" class="back-button">
+            <i class="fas fa-home"></i> Retour à l'accueil
+        </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="contact-container">
+        <div class="contact-item">
+            <span class="contact-label">Téléphone</span>
+            <span class="contact-value">+243 998715843</span>
+        </div>
+        
+        <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">Sagedimumbe7@gmail.com</span>
+        </div>
+        
+        <div class="contact-item social">
+            <span class="contact-label">Suivez-moi</span>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/sage-dimumbe" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/sagedimumbe" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/sagedimumbe" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 By Sage Dimumbe
+        </div>
+    </div>
+</body>
+</html>
