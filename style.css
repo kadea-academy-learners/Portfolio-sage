@@ -246,8 +246,10 @@ p {
         margin: 10px;
     }
     
-   contact-item {
-       display: table-column
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
