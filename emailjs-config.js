@@ -1,16 +1,19 @@
-// Configuration EmailJS
-// IMPORTANT: Remplacez ces valeurs par vos propres identifiants EmailJS
+// Configuration EmailJS pour Sage Dimumbe
+// Email de destination: Sagedimumbe7@gmail.com
 
 const EMAILJS_CONFIG = {
-    // Votre clé publique EmailJS (récupérée depuis votre dashboard EmailJS)
-    PUBLIC_KEY: 'VOTRE_PUBLIC_KEY_ICI',
+    // Clé publique EmailJS
+    PUBLIC_KEY: 'sagedimumbe7@gmail.com',
     
-    // Votre Service ID (ex: service_gmail, service_outlook, etc.)
-    SERVICE_ID: 'VOTRE_SERVICE_ID_ICI',
+    // Service Gmail ID
+    SERVICE_ID: 'service_q87tgll',
     
-    // Votre Template ID (créé dans EmailJS)
-    TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_ICI'
+    // Template ID pour portfolio
+    TEMPLATE_ID: 'template_t1rut2n'
 };
+
+// Configuration validée le 08/09/2025 15:23:30
+console.log('✅ EmailJS configuré pour Sagedimumbe7@gmail.com');
 
 /* 
 INSTRUCTIONS POUR CONFIGURER EMAILJS:
