@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration EmailJS - Sage Dimumbe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .step {
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+        .step h3 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            border: 1px solid #e9ecef;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .warning {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .link-button {
+            display: inline-block;
+            background: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .link-button:hover {
+            background: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Configuration EmailJS pour Sage Dimumbe</h1>
+        
+        <div class="step warning">
+            <h3>📧 Email de destination</h3>
+            <p><strong>Sagedimumbe7@gmail.com</strong> - Votre compte Gmail sera connecté pour recevoir tous les messages du formulaire de contact.</p>
+        </div>
+
+        <div class="step">
+            <h3>1️⃣ Créer votre compte EmailJS</h3>
+            <p>Cliquez sur le bouton ci-dessous pour créer votre compte EmailJS gratuit :</p>
+            <a href="https://www.emailjs.com/users/sign_up" target="_blank" class="link-button">
+                Créer un compte EmailJS 🔗
+            </a>
+            <p>Utilisez votre adresse <strong>Sagedimumbe7@gmail.com</strong> pour l'inscription.</p>
+        </div>
+
+        <div class="step">
+            <h3>2️⃣ Configurer Gmail</h3>
+            <p>Une fois connecté à EmailJS :</p>
+            <ol>
+                <li>Allez dans "Email Services"</li>
+                <li>Cliquez "Add New Service"</li>
+                <li>Choisissez "Gmail"</li>
+                <li>Connectez votre compte Gmail</li>
+                <li>Copiez votre <strong>Service ID</strong></li>
+            </ol>
+            <a href="https://dashboard.emailjs.com/admin" target="_blank" class="link-button">
+                Dashboard EmailJS 🔗
+            </a>
+        </div>
+
+        <div class="step">
+            <h3>3️⃣ Créer le template d'email</h3>
+            <p>Créez un template avec ces paramètres :</p>
+            
+            <p><strong>Template Name :</strong></p>
+            <div class="code-block">Portfolio Contact Form - Sage Dimumbe</div>
+            
+            <p><strong>Subject :</strong></p>
+            <div class="code-block">Nouveau message de {{subject}} - Portfolio Sage Dimumbe</div>
+            
+            <p><strong>Content (copiez-collez ce code HTML) :</strong></p>
+            <div class="code-block">
+&lt;div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;"&gt;<br>
+&nbsp;&nbsp;&lt;h2 style="color: #333;"&gt;💌 Nouveau message depuis votre Portfolio&lt;/h2&gt;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&lt;div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 style="color: #2196F3; margin-top: 0;"&gt;Détails du contact :&lt;/h3&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;👤 Nom :&lt;/strong&gt; {{from_name}}&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;📧 Email :&lt;/strong&gt; {{from_email}}&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;📌 Sujet :&lt;/strong&gt; {{subject}}&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&lt;div style="background: white; padding: 20px; border: 1px solid #e9ecef; border-radius: 5px;"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 style="color: #333;"&gt;📝 Message :&lt;/h3&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="line-height: 1.6;"&gt;{{message}}&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&lt;hr style="margin: 30px 0;"&gt;<br>
+&nbsp;&nbsp;&lt;p style="color: #666; font-size: 14px; text-align: center;"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;✅ Ce message a été envoyé depuis votre site web portfolio.&lt;br&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;🌐 https://kadea-academy-learners.github.io/Portfolio-sage/<br>
+&nbsp;&nbsp;&lt;/p&gt;<br>
+&lt;/div&gt;
+            </div>
+            
+            <a href="https://dashboard.emailjs.com/admin/templates" target="_blank" class="link-button">
+                Créer le Template 🔗
+            </a>
+        </div>
+
+        <div class="step">
+            <h3>4️⃣ Récupérer vos identifiants</h3>
+            <p>Copiez ces 3 informations depuis votre dashboard EmailJS :</p>
+            <ul>
+                <li><strong>Public Key</strong> : Dans Account → General</li>
+                <li><strong>Service ID</strong> : Dans Email Services</li>
+                <li><strong>Template ID</strong> : Dans Email Templates</li>
+            </ul>
+        </div>
+
+        <div class="step success">
+            <h3>5️⃣ Configuration automatique</h3>
+            <p>Une fois que vous avez vos identifiants, remplissez les champs ci-dessous :</p>
+            
+            <div style="margin: 20px 0;">
+                <label><strong>Public Key :</strong></label><br>
+                <input type="text" id="publicKey" placeholder="Votre Public Key" style="width: 100%; padding: 8px; margin: 5px 0;">
+                
+                <label><strong>Service ID :</strong></label><br>
+                <input type="text" id="serviceId" placeholder="service_xxxxxxx" style="width: 100%; padding: 8px; margin: 5px 0;">
+                
+                <label><strong>Template ID :</strong></label><br>
+                <input type="text" id="templateId" placeholder="template_xxxxxxx" style="width: 100%; padding: 8px; margin: 5px 0;">
+            </div>
+            
+            <button onclick="generateConfig()">🔧 Générer la Configuration</button>
+            
+            <div id="generatedConfig" style="display: none; margin-top: 20px;">
+                <h4>Configuration générée :</h4>
+                <div class="code-block" id="configOutput"></div>
+                <button onclick="copyConfig()">📋 Copier la Configuration</button>
+                <p style="color: #28a745;"><strong>Copiez ce code et remplacez le contenu du fichier emailjs-config.js</strong></p>
+            </div>
+        </div>
+
+        <div class="step warning">
+            <h3>⚠️ Important</h3>
+            <ul>
+                <li>Plan gratuit : <strong>200 emails/mois</strong></li>
+                <li>Vérifiez vos spams la première fois</li>
+                <li>Testez votre configuration avant la mise en ligne</li>
+                <li>Gardez vos identifiants sécurisés</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function generateConfig() {
+            const publicKey = document.getElementById('publicKey').value;
+            const serviceId = document.getElementById('serviceId').value;
+            const templateId = document.getElementById('templateId').value;
+            
+            if (!publicKey || !serviceId || !templateId) {
+                alert('Veuillez remplir tous les champs !');
+                return;
+            }
+            
+            const config = `// Configuration EmailJS pour Sage Dimumbe
+// Email de destination: Sagedimumbe7@gmail.com
+
+const EMAILJS_CONFIG = {
+    // Clé publique EmailJS
+    PUBLIC_KEY: '${publicKey}',
+    
+    // Service Gmail ID
+    SERVICE_ID: '${serviceId}',
+    
+    // Template ID pour portfolio
+    TEMPLATE_ID: '${templateId}'
+};
+
+// Configuration validée le ${new Date().toLocaleString('fr-FR')}
+console.log('✅ EmailJS configuré pour Sagedimumbe7@gmail.com');`;
+
+            document.getElementById('configOutput').innerText = config;
+            document.getElementById('generatedConfig').style.display = 'block';
+        }
+        
+        function copyConfig() {
+            const configText = document.getElementById('configOutput').innerText;
+            navigator.clipboard.writeText(configText).then(() => {
+                alert('✅ Configuration copiée ! Remplacez maintenant le contenu du fichier emailjs-config.js');
+            });
+        }
+    </script>
+</body>
+</html>
