@@ -27,7 +27,11 @@
 
         <hr>
 
-        <form id="contact-form" class="form-section">
+        <form id="contact-form" class="form-section" action="https://formspree.io/f/xgveygko" method="POST">
+            <input type="hidden" name="_to" value="Sagedimumbe7@gmail.com">
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio de Sage Dimumbe">
+            <input type="hidden" name="_next" value="https://kadea-academy-learners.github.io/Portfolio-sage/success.html">
+            
             <div class="form-column">
                 <div class="form-group">
                     <label>Prénom</label>
@@ -42,7 +46,7 @@
             <div class="form-column">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="_replyto" id="email" required>
                 </div>
                 <div class="form-group">
                     <label>Sujet</label>
@@ -54,11 +58,11 @@
                 <label>Message</label>
                 <textarea rows="4" name="message" id="message" required></textarea>
             </div>
+            
+            <div class="form-group">
+                <button type="submit" class="submit-btn" id="submit-btn">Envoyer</button>
+            </div>
         </form>
-        
-        <div class="form-group">
-            <button type="submit" class="submit-btn" id="submit-btn">Envoyer</button>
-        </div>
 
     <hr>
     
