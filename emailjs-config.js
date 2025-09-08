@@ -9,10 +9,10 @@ const EMAILJS_CONFIG = {
     SERVICE_ID: 'service_q87tgll',
     
     // Template ID pour portfolio
-    TEMPLATE_ID: 'template_t1rut2n'
+    TEMPLATE_ID: '__ejs-test-mail-service__'
 };
 
-// Configuration validée le 08/09/2025 15:23:30
+// Configuration validée le 08/09/2025 15:52:20
 console.log('✅ EmailJS configuré pour Sagedimumbe7@gmail.com');
 
 /* 
