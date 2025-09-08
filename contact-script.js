@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submit-btn');
-    const form = document.querySelector('.container');
+    const form = document.getElementById('contact-form');
+    const container = document.querySelector('.container');
+    
+    // Initialiser EmailJS
+    emailjs.init({
+        publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+    });
     
     // Fonction pour valider les champs du formulaire
     function validateForm() {
@@ -68,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        // Insérer le message au début du formulaire
-        form.insertBefore(successDiv, form.firstChild);
+        // Insérer le message au début du container
+        container.insertBefore(successDiv, container.firstChild);
         
         // Faire défiler vers le message
         successDiv.scrollIntoView({ behavior: 'smooth' });
@@ -81,6 +87,51 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Réinitialiser le formulaire
         resetForm();
+    }
+    
+    // Fonction pour afficher un message d'erreur
+    function showErrorMessage(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message-global';
+        errorDiv.innerHTML = `
+            <div style="
+                background-color: #f8d7da;
+                color: #721c24;
+                padding: 15px;
+                border-radius: 5px;
+                border: 1px solid #f5c6cb;
+                margin: 20px 0;
+                text-align: center;
+                font-weight: bold;
+            ">
+                <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
+                ${message}
+            </div>
+        `;
+        
+        container.insertBefore(errorDiv, container.firstChild);
+        errorDiv.scrollIntoView({ behavior: 'smooth' });
+        
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
+    }
+    
+    // Fonction pour envoyer l'email
+    function sendEmail() {
+        const templateParams = {
+            from_name: document.getElementById('prenom').value + ' ' + document.getElementById('nom').value,
+            from_email: document.getElementById('email').value,
+            subject: document.getElementById('sujet').value,
+            message: document.getElementById('message').value,
+            to_email: 'Sagedimumbe7@gmail.com' // Votre email
+        };
+        
+        return emailjs.send(
+            EMAILJS_CONFIG.SERVICE_ID,
+            EMAILJS_CONFIG.TEMPLATE_ID,
+            templateParams
+        );
     }
     
     // Fonction pour réinitialiser le formulaire
@@ -97,16 +148,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Valider le formulaire
         if (validateForm()) {
-            // Simuler l'envoi (en réalité, vous devriez envoyer à un serveur)
+            // Envoyer l'email réellement
             submitBtn.textContent = 'Envoi en cours...';
             submitBtn.disabled = true;
             
-            // Simuler un délai d'envoi
-            setTimeout(() => {
-                showSuccessMessage();
-                submitBtn.textContent = 'Envoyer';
-                submitBtn.disabled = false;
-            }, 1500);
+            // Envoyer l'email avec EmailJS
+            sendEmail()
+                .then((response) => {
+                    console.log('Email envoyé avec succès:', response);
+                    showSuccessMessage();
+                })
+                .catch((error) => {
+                    console.error('Erreur lors de l\'envoi:', error);
+                    showErrorMessage('Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer.');
+                })
+                .finally(() => {
+                    submitBtn.textContent = 'Envoyer';
+                    submitBtn.disabled = false;
+                });
         }
     });
     
