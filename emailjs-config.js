@@ -3,7 +3,7 @@
 
 const EMAILJS_CONFIG = {
     // Clé publique EmailJS
-    PUBLIC_KEY: 'sagedimumbe7@gmail.com',
+    PUBLIC_KEY: 'aLWj8oMGZBR8cUZo6',
     
     // Service Gmail ID
     SERVICE_ID: 'service_q87tgll',

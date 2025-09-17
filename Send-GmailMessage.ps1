@@ -46,5 +46,5 @@ Write-Host "- Send-GmailMessage : Envoie un email via Gmail"
 Write-Host "- Page-Admin : Page rapidement un administrateur"
 Write-Host ""
 Write-Host "Exemples d'utilisation:" -ForegroundColor Cyan
-Write-Host 'Send-GmailMessage -To "admin@example.com" -Subject "Test" -Body "Message de test"'
-Write-Host 'Page-Admin -AdminEmail "admin@example.com" -Message "Besoin d''assistance urgente"'
+Write-Host 'Send-GmailMessage -To "sagedimumbe7@example.com" -Subject "Test" -Body "Message de test"'
+Write-Host 'Page-Admin -AdminEmail "sagedimumbe7@example.com" -Message "Besoin d''assistance urgente"'
