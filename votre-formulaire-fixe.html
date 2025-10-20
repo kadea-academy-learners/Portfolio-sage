@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact - Sage Dimumbe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="submit"]:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Sage Dimumbe</h1>
+    
+    <div id="message-container"></div>
+
+    <form id="form">
+        <div class="field">
+            <label for="name">Nom complet</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="field">
+            <label for="nom">Nom de famille</label>
+            <input type="text" name="nom" id="nom" required>
+        </div>
+        <div class="field">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" required>
+        </div>
+        <div class="field">
+            <label for="message">Message</label>
+            <input type="text" name="message" id="message" required>
+        </div>
+        <div class="field">
+            <label for="sujet">Sujet</label>
+            <input type="text" name="sujet" id="sujet" required>
+        </div>
+        <div class="field">
+            <label for="title">Titre</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <input type="submit" id="button" value="Send Email">
+    </form>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script-formulaire.js"></script>
+    
+    <!-- OU utilisez ce script inline si vous préférez tout avoir dans un seul fichier -->
+    <!-- 
+    <script type="text/javascript">
+        emailjs.init('aLWj8oMGZBR8cUZo6');
+        
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const button = document.getElementById('button');
+            button.disabled = true;
+            button.value = 'Sending...';
+            
+            const templateParams = {
+                name: document.getElementById('name').value,
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                email: document.getElementById('email').value,
+                sujet: document.getElementById('sujet').value,
+                title: document.getElementById('title').value,
+                message: document.getElementById('message').value
+            };
+            
+            emailjs.send('service_q87tgll', 'template_t1rut2n', templateParams, 'aLWj8oMGZBR8cUZo6')
+                .then(function(response) {
+                    alert('SUCCESS! Message sent.');
+                    document.getElementById('form').reset();
+                }, function(error) {
+                    alert('FAILED... ' + JSON.stringify(error));
+                })
+                .finally(function() {
+                    button.disabled = false;
+                    button.value = 'Send Email';
+                });
+        });
+    </script>
+    -->
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug EmailJS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .debug-panel {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background-color: #0056b3; }
+        .form-test {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .form-test input, .form-test textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnostic EmailJS - Projet Sage Dimumbe</h1>
+    
+    <div class="debug-panel">
+        <h2>📊 État des Ressources</h2>
+        <div id="resource-status"></div>
+    </div>
+
+    <div class="debug-panel">
+        <h2>⚙️ Configuration EmailJS</h2>
+        <div id="config-status"></div>
+    </div>
+
+    <div class="debug-panel">
+        <h2>🧪 Test de Formulaire</h2>
+        <div class="form-test">
+            <input type="text" id="test-nom" placeholder="Nom" value="Test">
+            <input type="text" id="test-prenom" placeholder="Prénom" value="User">
+            <input type="email" id="test-email" placeholder="Email" value="test@example.com">
+            <input type="text" id="test-sujet" placeholder="Sujet" value="Test depuis debug">
+            <textarea id="test-message" placeholder="Message">Ceci est un test depuis le fichier debug.</textarea>
+            <button onclick="testEmailJS()">🚀 Tester l'envoi EmailJS</button>
+        </div>
+        <div id="test-results"></div>
+    </div>
+
+    <div class="debug-panel">
+        <h2>📝 Logs Console</h2>
+        <div id="console-logs"></div>
+        <button onclick="clearLogs()">🗑️ Vider les logs</button>
+    </div>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script>
+        // Configuration EmailJS (copie exacte du fichier de production)
+        const EMAILJS_CONFIG = {
+            PUBLIC_KEY: 'aLWj8oMGZBR8cUZo6',
+            SERVICE_ID: 'service_q87tgll',
+            TEMPLATE_ID: 'template_t1rut2n'
+        };
+
+        // Capturer les logs console
+        let logs = [];
+        const originalConsole = {
+            log: console.log,
+            error: console.error,
+            warn: console.warn,
+            info: console.info
+        };
+
+        ['log', 'error', 'warn', 'info'].forEach(method => {
+            console[method] = function(...args) {
+                logs.push({
+                    type: method,
+                    message: args.join(' '),
+                    timestamp: new Date().toLocaleTimeString()
+                });
+                updateConsoleLogs();
+                originalConsole[method].apply(console, args);
+            };
+        });
+
+        function updateConsoleLogs() {
+            const container = document.getElementById('console-logs');
+            container.innerHTML = logs.map(log => 
+                `<div class="status ${log.type === 'error' ? 'error' : log.type === 'warn' ? 'warning' : 'info'}">
+                    [${log.timestamp}] ${log.type.toUpperCase()}: ${log.message}
+                </div>`
+            ).join('');
+        }
+
+        function clearLogs() {
+            logs = [];
+            updateConsoleLogs();
+        }
+
+        function showStatus(containerId, message, type = 'info') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = message;
+            container.appendChild(div);
+        }
+
+        // Diagnostic au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Début du diagnostic EmailJS');
+            
+            // Test 1: Vérifier EmailJS
+            if (typeof emailjs !== 'undefined') {
+                showStatus('resource-status', '✅ EmailJS est chargé correctement', 'success');
+                console.log('EmailJS version:', emailjs);
+            } else {
+                showStatus('resource-status', '❌ EmailJS n\'est pas chargé', 'error');
+                console.error('EmailJS non disponible');
+            }
+
+            // Test 2: Vérifier la configuration
+            showStatus('config-status', `📋 Configuration actuelle:<br>
+                <strong>PUBLIC_KEY:</strong> ${EMAILJS_CONFIG.PUBLIC_KEY}<br>
+                <strong>SERVICE_ID:</strong> ${EMAILJS_CONFIG.SERVICE_ID}<br>
+                <strong>TEMPLATE_ID:</strong> ${EMAILJS_CONFIG.TEMPLATE_ID}`, 'info');
+
+            // Test 3: Initialiser EmailJS
+            try {
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+                    showStatus('config-status', '✅ EmailJS initialisé avec succès', 'success');
+                    console.log('EmailJS initialisé avec la clé:', EMAILJS_CONFIG.PUBLIC_KEY);
+                }
+            } catch (error) {
+                showStatus('config-status', '❌ Erreur lors de l\'initialisation: ' + error.message, 'error');
+                console.error('Erreur initialisation EmailJS:', error);
+            }
+        });
+
+        // Fonction de test d'envoi
+        async function testEmailJS() {
+            const resultsContainer = document.getElementById('test-results');
+            resultsContainer.innerHTML = '<div class="status info">🔄 Test en cours...</div>';
+
+            try {
+                // Récupérer les valeurs de test
+                const params = {
+                    nom: document.getElementById('test-nom').value,
+                    prenom: document.getElementById('test-prenom').value,
+                    email: document.getElementById('test-email').value,
+                    sujet: document.getElementById('test-sujet').value,
+                    message: document.getElementById('test-message').value
+                };
+
+                console.log('Paramètres de test:', params);
+
+                // Vérifier que tous les champs sont remplis
+                if (!params.nom || !params.email || !params.message) {
+                    throw new Error('Tous les champs obligatoires doivent être remplis');
+                }
+
+                // Tentative d'envoi
+                console.log('Tentative d\'envoi avec EmailJS...');
+                const response = await emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.TEMPLATE_ID,
+                    params,
+                    EMAILJS_CONFIG.PUBLIC_KEY
+                );
+
+                console.log('Réponse EmailJS:', response);
+                resultsContainer.innerHTML = `
+                    <div class="status success">✅ Test réussi !</div>
+                    <pre>${JSON.stringify(response, null, 2)}</pre>
+                `;
+
+            } catch (error) {
+                console.error('Erreur lors du test:', error);
+                resultsContainer.innerHTML = `
+                    <div class="status error">❌ Erreur: ${error.message}</div>
+                    <pre>Détails de l'erreur:
+${error.text || error.stack || 'Aucun détail supplémentaire'}</pre>
+                `;
+                
+                // Diagnostic supplémentaire
+                if (error.message.includes('template')) {
+                    resultsContainer.innerHTML += `
+                        <div class="status warning">
+                            ⚠️ Problème possible avec le template EmailJS. 
+                            Vérifiez que le template "${EMAILJS_CONFIG.TEMPLATE_ID}" existe dans votre compte EmailJS.
+                        </div>
+                    `;
+                }
+                
+                if (error.message.includes('service')) {
+                    resultsContainer.innerHTML += `
+                        <div class="status warning">
+                            ⚠️ Problème possible avec le service EmailJS. 
+                            Vérifiez que le service "${EMAILJS_CONFIG.SERVICE_ID}" est actif dans votre compte.
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Test de connectivité réseau
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'HEAD'
+        }).then(() => {
+            showStatus('resource-status', '✅ Connexion à l\'API EmailJS OK', 'success');
+        }).catch(() => {
+            showStatus('resource-status', '❌ Problème de connexion à l\'API EmailJS', 'error');
+        });
+    </script>
+</body>
+</html>

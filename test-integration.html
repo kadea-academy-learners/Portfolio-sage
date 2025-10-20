@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Intégration - Contact Sage Dimumbe</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <style>
+        /* Styles de test pour vérifier l'état */
+        .test-panel {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .status-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-panel">
+        <h2>🧪 Test d'Intégration - Formulaire de Contact</h2>
+        <div id="integration-status">
+            <div class="status-info">🔄 Chargement en cours...</div>
+        </div>
+        <button onclick="runIntegrationTest()" style="background-color: #17a2b8; color: white; border: none; padding: 10px 20px; border-radius: 4px; margin: 10px 0;">🔍 Lancer Test Complet</button>
+    </div>
+
+    <!-- Votre structure existante -->
+    <div class="container">
+        <div class="contact-info">
+            <h2>Contact</h2>
+            <strong>Téléphone</strong>
+            <p>+243 998715843</p>
+
+            <strong>Email</strong>
+            <p>Sagedimumbe7@gmail.com</p>
+        </div>
+
+        <hr>
+
+        <form id="contact-form" class="form-section" onsubmit="return handleFormSubmit(event)">
+            
+            <div class="form-column">
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input type="text" name="prenom" id="prenom" value="Test" required>
+                </div>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" name="nom" id="nom" value="Integration" required>
+                </div>
+            </div>
+        
+            <div class="form-column">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" value="test@integration.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Sujet</label>
+                    <input type="text" name="sujet" id="sujet" value="Test d'intégration" required>
+                </div>
+            </div>
+        
+            <div class="form-group full-width">
+                <label>Message</label>
+                <textarea rows="4" name="message" id="message" required>Ceci est un test d'intégration pour vérifier que le formulaire de contact fonctionne parfaitement dans le projet.</textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="submit-btn" id="submit-btn">Envoyer</button>
+            </div>
+        </form>
+
+        <hr>
+    
+        <div class="contact-container">
+            <div class="contact-item">
+                <span class="contact-label">Téléphone</span>
+                <span class="contact-value">+243 998715843</span>
+            </div>
+            
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">Sagedimumbe7@gmail.com</span>
+            </div>
+            
+            <div class="contact-item-social">
+                <span class="contact-label">Suivez-moi</span>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="copyright">
+            © 2025 By Sage Dimumbe
+        </div>
+    </div>
+
+    <!-- Vos scripts existants -->
+    <script src="navbar.js"></script>
+    <script src="emailjs-config.js"></script>
+    <script src="contact-script.js"></script>
+    
+    <!-- Script de test d'intégration -->
+    <script>
+        function showIntegrationStatus(message, type) {
+            const container = document.getElementById('integration-status');
+            container.innerHTML += `<div class="status-${type}">${message}</div>`;
+        }
+
+        function runIntegrationTest() {
+            const container = document.getElementById('integration-status');
+            container.innerHTML = '<div class="status-info">🔄 Test d\'intégration en cours...</div>';
+
+            // Test 1: Vérifier EmailJS
+            setTimeout(() => {
+                if (typeof emailjs !== 'undefined') {
+                    showIntegrationStatus('✅ EmailJS: Chargé et disponible', 'success');
+                } else {
+                    showIntegrationStatus('❌ EmailJS: Non disponible', 'error');
+                }
+
+                // Test 2: Vérifier la configuration
+                if (typeof EMAILJS_CONFIG !== 'undefined') {
+                    showIntegrationStatus(`✅ Configuration: Chargée (Service: ${EMAILJS_CONFIG.SERVICE_ID})`, 'success');
+                } else {
+                    showIntegrationStatus('❌ Configuration: Non disponible', 'error');
+                }
+
+                // Test 3: Vérifier les fonctions
+                if (typeof handleFormSubmit === 'function') {
+                    showIntegrationStatus('✅ Fonction handleFormSubmit: Disponible', 'success');
+                } else {
+                    showIntegrationStatus('❌ Fonction handleFormSubmit: Non disponible', 'error');
+                }
+
+                if (typeof sendMail === 'function') {
+                    showIntegrationStatus('✅ Fonction sendMail: Disponible', 'success');
+                } else {
+                    showIntegrationStatus('❌ Fonction sendMail: Non disponible', 'error');
+                }
+
+                // Test 4: Vérifier les éléments du DOM
+                const requiredElements = [
+                    { id: 'contact-form', name: 'Formulaire' },
+                    { id: 'submit-btn', name: 'Bouton d\'envoi' },
+                    { id: 'nom', name: 'Champ nom' },
+                    { id: 'prenom', name: 'Champ prénom' },
+                    { id: 'email', name: 'Champ email' },
+                    { id: 'sujet', name: 'Champ sujet' },
+                    { id: 'message', name: 'Champ message' }
+                ];
+
+                requiredElements.forEach(element => {
+                    if (document.getElementById(element.id)) {
+                        showIntegrationStatus(`✅ ${element.name}: Présent`, 'success');
+                    } else {
+                        showIntegrationStatus(`❌ ${element.name}: Manquant`, 'error');
+                    }
+                });
+
+                // Test 5: Test de récupération des valeurs
+                try {
+                    const testParams = {
+                        nom: document.getElementById("nom").value,
+                        prenom: document.getElementById("prenom").value,
+                        email: document.getElementById("email").value,
+                        sujet: document.getElementById("sujet").value,
+                        message: document.getElementById("message").value
+                    };
+                    
+                    if (Object.values(testParams).every(val => val.trim() !== '')) {
+                        showIntegrationStatus('✅ Récupération des données: Tous les champs sont remplis', 'success');
+                    } else {
+                        showIntegrationStatus('⚠️ Récupération des données: Certains champs sont vides', 'info');
+                    }
+                } catch (error) {
+                    showIntegrationStatus(`❌ Erreur récupération: ${error.message}`, 'error');
+                }
+
+                showIntegrationStatus('🎯 Test d\'intégration terminé ! Le formulaire est prêt à être utilisé.', 'success');
+            }, 500);
+        }
+
+        // Test automatique au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                runIntegrationTest();
+            }, 1000);
+        });
+
+        // Intercepter les envois pour les logs de test
+        const originalHandleFormSubmit = window.handleFormSubmit;
+        window.handleFormSubmit = function(event) {
+            console.log('🚀 Test: Tentative d\'envoi du formulaire');
+            showIntegrationStatus('🚀 Tentative d\'envoi du formulaire détectée', 'info');
+            return originalHandleFormSubmit ? originalHandleFormSubmit(event) : false;
+        };
+    </script>
+</body>
+</html>
