@@ -1,0 +1,88 @@
+/* Thèmes globaux pour tout le site */
+
+/* Application du thème au body et éléments principaux */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Styles pour les contenus principaux */
+main {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Divider */
+.divider {
+    background-color: var(--border-color);
+}
+
+/* Contact container */
+.contact-container {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-item {
+    color: var(--text-primary);
+}
+
+.contact-label {
+    color: var(--text-secondary);
+}
+
+.contact-value {
+    color: var(--text-primary);
+}
+
+/* Social icons */
+.social-icons a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* Copyright */
+.copyright {
+    color: var(--text-secondary);
+}
+
+/* Navigation buttons dans le main */
+.nav-buttons .nav-li a,
+.nav-buttons .nav-li2 a,
+.nav-buttons .nav-li3 a {
+    background-color: var(--accent-color);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons .nav-li a:hover,
+.nav-buttons .nav-li2 a:hover,
+.nav-buttons .nav-li3 a:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments pour le theme toggle */
+@media screen and (max-width: 768px) {
+    .theme-toggle {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .header-controls {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .theme-toggle {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+}
