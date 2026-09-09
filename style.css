@@ -98,31 +98,43 @@ p {
 }
 
 .nav-li, .nav-li2, .nav-li3 {
-    border-radius: 50%;
+    border-radius: 30%;
     height: 100px;
     width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s;
+
 }
+
 
 .nav-li {
     background-color: aqua;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+
+    
+  
 }
+
+
 
 .nav-li2 {
     background-color: rgb(118, 204, 97);
+    font-size: 20px;
 }
 
 .nav-li3 {
     background-color: rgb(255, 136, 0);
+    font-size: 20px;
 }
 
 .nav-buttons a {
     text-decoration: none;
     color: #565151;
-    font-weight: 500;
+    font-weight: 500px;
 }
 
 .nav-buttons li:hover {
@@ -133,7 +145,7 @@ p {
 .divider {
     border-top: 1px solid #ccc;
     margin: 50px auto;
-    width: 80%;
+    width: 90%;
 }
 
 .contact-container {
