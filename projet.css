@@ -115,6 +115,35 @@ nav a {
     color: #888;
 }
 
+.site-nav,
+.site-nav * {
+    box-sizing: border-box;
+}
+
+.site-nav .site-nav__brand,
+.site-nav .site-nav__brand:hover,
+.site-nav .site-nav__brand:visited,
+.site-nav .site-nav__menu li a,
+.site-nav .site-nav__menu li a:hover,
+.site-nav .site-nav__menu li a:visited {
+    margin-left: 0;
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.site-nav .site-nav__brand {
+    color: var(--nav-text);
+}
+
+.site-nav .site-nav__menu li a {
+    color: var(--nav-text-muted);
+}
+
+.site-nav .site-nav__menu li a.is-active {
+    color: var(--nav-orange);
+}
+
 /* Responsive Design */
 @media (min-width: 768px) {
     .project-container {
