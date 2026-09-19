@@ -1,7 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -39,22 +37,7 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    gap: 20px;
-}
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #555;
-}
 
 /* Contenu principal */
 main {
@@ -98,7 +81,7 @@ p {
 }
 
 .nav-li, .nav-li2, .nav-li3 {
-    border-radius: 30%;
+    border-radius: 50%;
     height: 100px;
     width: 100px;
     display: flex;
@@ -150,22 +133,23 @@ p {
 
 .contact-container {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.contact-item {
-    margin-bottom: 20px;
+.social {
+   
+margin:0;
+   
     
 }
 
 .contact-label {
     font-weight: bold;
     display: block;
-    margin-bottom: 5px;
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -179,7 +163,7 @@ p {
 .social-icons {
     display: flex;
     gap: 15px;
-    margin-top: 10px;
+    
 }
 
 .social-icons a {
